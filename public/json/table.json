@@ -1,0 +1,94 @@
+{
+	"tableList": [
+		{
+			"title": "분류",
+			"route": "category",
+			"type": "text",
+			"width": "1",
+			"hide": "hidden-xs"
+},
+
+		{
+			"title": "건물명",
+			"route": "title",
+			"type": "text",
+			"width": "1"
+},
+		{
+			"title": "호수(층)",
+			"route": "roomNum",
+			"type": "number",
+			"width": "1"
+}, {
+			"title": "연락처 이름01",
+			"route": "phoneName01",
+			"type": "text",
+			"width": "2"
+},
+		{
+			"title": "연락처 번호01",
+			"route": "phoneNum01",
+			"type": "tel",
+			"width": "2"
+},
+		{
+			"title": "연락처 이름02",
+			"route": "phoneName02",
+			"type": "text",
+			"width": "2"
+},
+		{
+			"title": "연락처 번호02",
+			"route": "phoneNum02",
+			"type": "tel",
+			"width": "2"
+},
+		{
+			"title": "주소",
+			"route": "address",
+			"type": "text",
+			"width": "2",
+			"hide": "hidden-xs"
+},
+
+		{
+			"title": "방",
+			"route": "bedrooms",
+			"type": "number",
+			"width": "1",
+			"hide": "hidden-xs"
+},
+		{
+			"title": "화장실",
+			"route": "bathrooms",
+			"type": "number",
+			"width": "1",
+			"hide": "hidden-xs"
+},
+		{
+			"title": "전용면적",
+			"route": "size",
+			"type": "number"
+},
+		{
+			"title": "만기일",
+			"route": "endDate",
+			"type": "date"
+},
+		{
+			"title": "기입일",
+			"route": "postDate",
+			"type": "date"
+},
+		{
+			"title": "준공년월",
+			"route": "builtDate",
+			"type": "date"
+},
+		{
+			"title": "비고",
+			"route": "comment",
+			"type": "text"
+}
+]
+}

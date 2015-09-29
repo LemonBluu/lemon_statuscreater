@@ -1,0 +1,16 @@
+{
+  "name": "node-api",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "*",
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "express": "*",
+    "express-session": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "passport": "*",
+    "passport-local": "*"
+  }
+}

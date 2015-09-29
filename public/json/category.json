@@ -1,0 +1,27 @@
+{
+	"categoryList": [
+		{
+			"title": "주택"
+},
+		{
+			"title": "상가"
+},
+		{
+			"title": "사무실"
+}
+],
+	"dealList": [
+		{
+			"title": "매매"
+},
+		{
+			"title": "전세"
+},
+		{
+			"title": "월세"
+},
+		{
+			"title": "렌트"
+}
+]
+}

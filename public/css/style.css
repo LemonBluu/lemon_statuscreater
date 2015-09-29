@@ -1,0 +1,105 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+body {
+  font-family: 'Jeju Gothic', serif;
+}
+main {
+  margin-top: 7.8em;
+}
+
+/*유효성검증*/
+
+input.ng-invalid {
+  border: 3px solid #E47474;
+}
+.fixed-sidebar {
+  height: 100%;
+  position: fixed;
+  z-index: 10;
+  right:0%
+}
+.width-80 {
+  width: 80em !important;
+}
+.nopadding {
+  padding: 0 !important;
+  margin: 0;
+}
+.leftpadding {
+  padding: 0 0 0 0.5em;
+  margin: 0;
+}
+.padding-sm {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+/*폰트사이즈 설정*/
+
+.font-lg {
+  font-size: 1.2em;
+}
+.font-xl {
+  font-size: 1.4em;
+}
+
+/*컬러 설정*/
+
+.red {
+  background-color: #E47474;
+  color: #4E4E4E !important;
+}
+.blue {
+  background-color: #95C9E1;
+  color: #4E4E4E !important;
+}
+.green {
+  background-color: #88DDBD;
+  color: #4E4E4E !important;
+}
+.lemon {
+  background-color: #F9D388;
+  color: #4E4E4E !important;
+}
+.orange {
+  background-color: #E49E6A;
+  color: #4E4E4E !important;
+}
+.sky {
+  background-color: #5BC0DE;
+  color: white !important;
+}
+.grey {
+  background-color: #F8F8F8;
+}
+.grey-more {
+  background-color: #F8F3F8;
+}
+.font-grey {
+  color: #E7E7E7;
+}
+
+/*반응형*/
+@media screen and (max-width:768px) {
+  .border-none{
+  border: 0px;
+  }
+
+  .responsive {
+    float: none;
+    width: auto;
+  }
+  .margin-top-xs {
+    margin-top: 0.6em;
+  }
+
+  /*NOTE: lg 사이즈와 겹침, 이후 학습 필요*/
+  .leftpadding {
+    padding: 0 ;
+    margin: 0 !important;
+  }
+  .font-sm-sm {
+    font-size:1.2em;
+  }
+  .font-sm-xs {
+    font-size:1em;
+  }
+}

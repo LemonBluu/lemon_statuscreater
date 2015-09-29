@@ -1,0 +1,48 @@
+<h3>
+  <a href="#buildings" ng-click="clearFilter()">{{companyName}}</a>
+</h3>
+
+<h4>{{userName}}
+  {{userTitle}}</h4>
+<h5>{{date | date:'yyyy년MM월dd일'}}</h5>
+
+<div class="container-fluid">
+<!-- 검색창 -->
+
+<input class="form-control col-sm-12" id="finder" ng-model="find" placeholder="검색" type="text"/>
+
+<!-- 카테고리 전체 -->
+<div id="categoryList" style="margin-top:3em">
+  <div class="row">
+    <button class="btn btn-default col-sm-4" ng-click="setCategoryFilter('주택')">
+      <i class="fa fa-home"></i>
+      주택</button>
+    <button class="btn btn-default col-sm-4" ng-click="setCategoryFilter('상가')">
+      <i class="fa fa-shopping-cart"></i>
+      상가</button>
+    <button class="btn btn-default col-sm-4" ng-click="setCategoryFilter('사무실')">
+      <i class="fa fa-building-o"></i>
+      사무실</button>
+  </div>
+<!-- 카테고리 02 -->
+  <div class="row">
+    <button class="btn btn-default col-sm-3" ng-click="setDealFilter('매매')">매매</button>
+    <button class="btn btn-default col-sm-3" ng-click="setDealFilter('전세')">전세</button>
+    <button class="btn btn-default col-sm-3" ng-click="setDealFilter('월세')">월세</button>
+    <button class="btn btn-default col-sm-3" ng-click="setDealFilter('렌트')">렌트</button>
+  </div>
+</div>
+
+<div class="row" style="margin-top:1em">
+<!-- 필터해제 버튼 -->
+  <button class="btn btn-warning col-sm-6" ng-click="clearFilter()">
+    <i class="fa fa-ban"></i>
+    필터해제</button>
+<!-- 매물추가 버튼 -->
+  <a href="#addBuilding">
+    <button class="btn btn-primary col-sm-6" id="addBuilding">
+      <i class="fa fa-pencil-square-o"></i>
+      매물추가</button>
+  </a>
+</div>
+</div>
