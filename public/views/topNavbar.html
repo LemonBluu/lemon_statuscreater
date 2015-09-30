@@ -5,32 +5,19 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" ng-show="authenticated">
-        <li role="presentation">
-          <a href="#addBuilding">
-            <i class="fa fa-pencil"></i>
-            매물추가</a>
-        </li>
-        <li role="category">
-          <a href="#buildings" ng-click="clearFilter()">
-            <i class="fa fa-minus-circle"></i>
-            필터해제</a>
-        </li>
-        <li class="active" role="category">
-          <a href="#buildings" ng-click="setDealFilter('주택')">
-            <i class="fa fa-home"></i>
-            주택</a>
-        </li>
-        <li role="category">
-          <a href="#buildings" ng-click="setDealFilter('상가')">
-            <i class="fa fa-shopping-cart"></i>
-            상가</a>
-        </li>
-        <li role="category">
-          <a href="#buildings" ng-click="setDealFilter('사무실')">
-            <i class="fa fa-building-o"></i>
-            사무실</a>
-        </li>
+        <!-- 검색창 -->
+        <form class="navbar-form navbar-left" role="search">
+          <div class="input-group container-fluid">
+            <span class="input-group-btn">
+              <button class="btn btn-info" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+            <input class="form-control" ng-change="search(value)" ng-model="value" placeholder="이름으로 검색" type="text">
+          </div>
+        </form>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="authenticated">
           <a href="#login">
@@ -51,42 +38,50 @@
             <i class="fa fa-inbox"></i>
             관리자</a>
         </li>
+
       </ul>
 
     </div>
 
-    <div class=" container-fluid" ng-show="authenticated">
-      <!-- 검색창 -->
-      <form class="navbar-form navbar-left" role="search">
-        <div class="input-group container-fluid">
-          <span class="input-group-btn">
-            <button class="btn btn-info" type="button">
-              <i class="fa fa-search"></i>
-            </button>
-          </span>
-          <input class="form-control" ng-change="search(value)" ng-model="value" placeholder="검색" type="text">
-        </div>
-      </form>
+    <!-- 두번째 줄 -->
+    <div class="container-fluid" ng-show="authenticated">
 
-      <!-- 두번째 줄 네비 -->
-      <ul class="" style="margin:0.5em 0 0.6em 0.8em; padding:0;">
-        <li class="btn red" ng-click="setCategoryFilter('매매')">매매
-          <span class="hidden-xs"></span>
-        </li>
-        <li class="btn green">전세
-          <span class="hidden-xs"></span>
-        </li>
-        <li class="btn blue">월세
-          <span class="hidden-xs"></span>
-        </li>
-        <li class="btn lemon">렌트
-          <span class="hidden-xs"></span>
-        </li>
-        <li class="btn btn-default">총
-          {{dbCounter}}개</li>
+      <ul class="">
+        <li class="btn btn-primary" ng-click="create()">
+          <i class="fa fa-pencil"></i>생성하기</li>
+        <li class="btn btn-primary">
+          <i class="fa fa-eye"></i>검색하기</li>
+        <li class="btn btn-danger" ng-click="clearFilter()">
+          <i class="fa fa-minus-circle"></i>필터해제</li>
+        <li class="btn btn-info">레벨
+          {{selectedLevel}}</li>
+        <li class="btn btn-info">등급
+          {{selectedRare}}</li>
+        <li class="btn btn-info">직업
+          {{selectedCategory}}</li>
+        <li class="btn btn-info">타입
+          {{selectedType}}</li>
+        <li class="btn btn-info">총스탯
+          {{baseStatus + selectedLevel + rareBonus}}</li>
 
       </ul>
+      <ul class="">
+        <li class="btn btn-success" ng-click="setLevel(level)" ng-repeat="level in levelAll" style="margin:0 0.1em 0 0.1em">{{level}}</li>
+      </ul>
+      <ul class="">
+        <li class="btn btn-success" ng-click="setRare($index)" ng-repeat="rare in rareAll" style="margin:0 0.1em 0 0.1em">{{rare.name}}</li>
+      </ul>
+
+      <ul class="">
+        <li class="btn btn-warning" ng-click="setCategory(category)" ng-repeat="category in categoryAll" style="margin:0 0.1em 0 0.1em">{{category}}</li>
+      </ul>
+      <ul class="">
+        <li class="btn btn-default" ng-click="setType(type)" ng-repeat="type in typeAll" style="margin:0 0.1em 0 0.1em">{{type}}</li>
+      </ul>
+
+      <!-- second row -->
     </div>
+    <!--container-fluid-->
   </div>
-  <!--container-fluid-->
+  <!-- navbar -->
 </div>

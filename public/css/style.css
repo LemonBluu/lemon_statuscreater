@@ -6,6 +6,13 @@ main {
   margin-top: 7.8em;
 }
 
+/*navBar row사이 거리*/
+
+.distance {
+  margin: 0.3em 0 0.3em 0.3em;
+  padding: 0;
+}
+
 /*유효성검증*/
 
 input.ng-invalid {
@@ -15,7 +22,7 @@ input.ng-invalid {
   height: 100%;
   position: fixed;
   z-index: 10;
-  right:0%
+  right: 0%
 }
 .width-80 {
   width: 80em !important;
@@ -78,11 +85,12 @@ input.ng-invalid {
 }
 
 /*반응형*/
-@media screen and (max-width:768px) {
-  .border-none{
-  border: 0px;
-  }
 
+@media screen and (max-width:384px) {}
+@media screen and (max-width:768px) {
+  .border-none {
+    border: 0px;
+  }
   .responsive {
     float: none;
     width: auto;
@@ -90,16 +98,19 @@ input.ng-invalid {
   .margin-top-xs {
     margin-top: 0.6em;
   }
-
+  .margin-top-lg {
+    margin-top: 3em;
+  }
+  
   /*NOTE: lg 사이즈와 겹침, 이후 학습 필요*/
   .leftpadding {
-    padding: 0 ;
+    padding: 0;
     margin: 0 !important;
   }
   .font-sm-sm {
-    font-size:1.2em;
+    font-size: 1.2em;
   }
   .font-sm-xs {
-    font-size:1em;
+    font-size: 1em;
   }
 }

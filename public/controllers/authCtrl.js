@@ -30,12 +30,4 @@ angular.module('authCtrl', [])
         }
       });
   };
-  //
-  // $scope.logout = function() {
-  //   $http.get('/auth/signout');
-  //   $rootScope.authenticated = false;
-  //   $rootScope.current_user = 'Guest';
-  //   console.log('log');
-  // };
-
 });

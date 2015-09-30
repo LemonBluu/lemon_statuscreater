@@ -4,10 +4,10 @@ angular.module('viewRouter', [])
 .config(function($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'views/pages/buildings.html',
-      controller: 'buildingListController'
+      templateUrl: 'views/pages/list.html',
+      controller: 'listController'
     })
-    
+
     .when('/login', {
       templateUrl: 'views/pages/login.html',
       controller: 'authController'
@@ -16,9 +16,9 @@ angular.module('viewRouter', [])
       templateUrl: 'views/pages/register.html',
       controller: 'authController'
     })
-    .when('/addBuilding', {
-      templateUrl: 'views/pages/addBuilding.html',
-      controller: 'buildingAddController'
+    .when('/post', {
+      templateUrl: 'views/pages/post.html',
+      controller: 'postController'
     })
     .otherwise({
       redirectTo: '/'

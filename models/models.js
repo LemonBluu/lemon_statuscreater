@@ -4,11 +4,12 @@ var mongoose = require('mongoose');
 var postSchema = new mongoose.Schema({
   title: String,
 	category: String,
+  race:String,
 	ability: String,
   level:Number,
   rare:Number,
   attack:Number,
-  health:Number,
+  hitpoint:Number,
 	comment: String,
 	postNum: Number,
 	postedBy: String,
