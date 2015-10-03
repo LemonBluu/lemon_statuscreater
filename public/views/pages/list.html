@@ -1,60 +1,59 @@
 <div class="col-sm-12 col-xs-12 col-lg-12">
 
-<!-- NOTE: 테스트용, 나중에 지울 수 있음 -->
-  <div ng-hide="false" ng-include="'views/pages/post.html'"></div>
-<!-- 메인 -->
+  <!-- NOTE: 테스트용, 나중에 지울 수 있음 -->
+  <!-- <div ng-hide="false" ng-include="'views/pages/post.html'"></div> -->
+  <!-- 메인 -->
   <div class="container-fluid nopadding">
     <div ng-repeat="post in posts | filter:enteredValue | filter:dealFilter | filter:categoryFilter | orderBy:'postedAt':true">
       <div class="panel panel-primary" style="margin-bottom:0.7em;">
-<!-- 패널 헤더 -->
+        <!-- 패널 헤더 -->
         <div class="panel-heading container-fluid">
-<!-- 주택명, 호수 -->
+          <!-- 이름 -->
           <span class="font-xl font-sm-sm nopadding col-sm-3 col-xs-12  col-lg-2">
             {{post.name}}
           </span>
 
           <span class="container-fluid nopadding font-lg font-sm-xs">
-<!-- /주소 -->
-            <span class="">
-              <i class="fa fa-home" ng-show="post.category =='주택'"></i>
-              <i class="fa fa-shopping-cart" ng-show="post.category =='상가'"></i>
-              <i class="fa fa-post" ng-show="post.category =='사무실'"></i>
+            <!-- 레벨 -->
+            <span class="btn btn-success">
+              <i class="fa fa-star"></i>
+              {{post.level}}
+              레벨
+            </span>
+            <!-- 희귀도 -->
+            <span class="btn btn-success">
+              <i class="fa fa-link"></i>
+              {{post.rare}}
+            </span>
+            <!-- xs 사이즈에서 한칸 띄운다 -->
+            <br class="visible-xs">
+            <!-- 직업 -->
+            <span class="btn btn-warning">
+              <i class="fa fa-hand-rock-o"></i>
               {{post.category}}
             </span>
-            <span class="">&nbsp;
-              <i class="fa fa-map-o"></i>&nbsp;
-              {{post.address}}
-            </span>
-<!-- xs 사이즈에서 한칸 띄운다 -->
-            <br class="visible-xs">
-<!-- 전용면적 -->
-            <span class="">&nbsp;
-              <i class="fa fa-crop"></i>&nbsp;
-              {{post.size}}평
-            </span>
-<!-- 룸갯수 -->
-            <span class="">&nbsp;
-              <i class="fa fa-th-large"></i>&nbsp;
-              {{post.bedRooms}}룸
-            </span>
-<!--화장실 갯수 -->
-            <span class="">&nbsp;
-              <i class="fa fa-tint"></i>&nbsp;
-              {{post.bathRooms}}개
+            <!-- 속성 -->
+            <span class="btn btn-default">
+              <i class="fa fa-child"></i>
+              {{post.type}}
             </span>
 
-<!-- 수정 및 삭제 버튼들 -->
+            <!-- 수정 및 삭제 버튼들 -->
             <span class="pull-right hidden-xs">
+              <span>
+                작성자
+                {{post.postedBy}}
+                &nbsp;</span>
               <span>#
                 {{post.postNum}}
                 번&nbsp;</span>
-<!-- 수정 -->
+              <!-- 수정 -->
               <span>
                 <button class="btn btn-default btn-sm">
                   <i class="fa fa-pencil fa-lg"></i>
                 </button>
               </span>
-<!-- 삭제버튼 -->
+              <!-- 삭제버튼 -->
               <span>
                 <button class="btn btn-default btn-sm" ng-click="deleteBuilding(post)">
                   <i class="fa fa-times fa-lg"></i>
@@ -64,15 +63,26 @@
           </span>
         </div>
 
-<!-- 패널 바디 -->
+        <!-- 패널 바디 -->
         <div class="panel-body grey padding-sm">
-
+          <div class="col-sm-3">
+            <span class="btn btn-info">
+              <i class="fa fa-gavel fa-lg"></i>
+              공격
+              {{post.attack}}
+            </span>
+            <span class="btn btn-warning">
+              <i class="fa fa-shield fa-lg"></i>
+              체력
+              {{post.hitpoint}}
+            </span>
+          </div>
           <div class="col-sm-4 leftpadding">
             <div class="panel panel-default nopadding">
               <table class="table table-bordered">
                 <tr>
-                  <td class="grey col-xs-2 text-center">
-                    비고
+                  <td class="grey col-xs-4 text-center">
+                    유닛 설명
                   </td>
                   <td>
                     <p class="font-grey nopadding" ng-show="post.comment == null">내용이 없습니다</p>

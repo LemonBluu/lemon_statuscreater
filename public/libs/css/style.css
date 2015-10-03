@@ -6,8 +6,11 @@ main {
   margin-top: 7.8em;
 }
 
-/*유효성검증*/
+.btn-selected{
+  border: 4px solid black;
+}
 
+/*유효성검증*/
 input.ng-invalid {
   border: 3px solid #E47474;
 }
@@ -33,7 +36,6 @@ input.ng-invalid {
 }
 
 /*폰트사이즈 설정*/
-
 .font-lg {
   font-size: 1.2em;
 }
@@ -42,7 +44,6 @@ input.ng-invalid {
 }
 
 /*컬러 설정*/
-
 .red {
   background-color: #E47474;
   color: #4E4E4E !important;

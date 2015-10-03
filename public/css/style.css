@@ -1,9 +1,13 @@
-@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+/*@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);*/
 body {
   font-family: 'Jeju Gothic', serif;
 }
 main {
   margin-top: 7.8em;
+}
+
+.btn-selected{
+  border:1px solid red;
 }
 
 /*navBar row사이 거리*/
@@ -101,7 +105,7 @@ input.ng-invalid {
   .margin-top-lg {
     margin-top: 3em;
   }
-  
+
   /*NOTE: lg 사이즈와 겹침, 이후 학습 필요*/
   .leftpadding {
     padding: 0;

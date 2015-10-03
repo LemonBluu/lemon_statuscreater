@@ -47,36 +47,28 @@
     <div class="container-fluid" ng-show="authenticated">
 
       <ul class="">
-        <li class="btn btn-primary" ng-click="create()">
-          <i class="fa fa-pencil"></i>생성하기</li>
+        <a href="#addPost">
+          <li class="btn btn-primary" ng-click="create()">
+            <i class="fa fa-pencil"></i>생성하기</li>
+        </a>
         <li class="btn btn-primary">
           <i class="fa fa-eye"></i>검색하기</li>
         <li class="btn btn-danger" ng-click="clearFilter()">
           <i class="fa fa-minus-circle"></i>필터해제</li>
-        <li class="btn btn-info">레벨
-          {{selectedLevel}}</li>
-        <li class="btn btn-info">등급
-          {{selectedRare}}</li>
-        <li class="btn btn-info">직업
-          {{selectedCategory}}</li>
-        <li class="btn btn-info">타입
-          {{selectedType}}</li>
-        <li class="btn btn-info">스탯
-          {{baseStatus + selectedLevel + rareBonus}}</li>
 
       </ul>
-      <ul class="">
-        <li class="btn btn-success" ng-click="setLevel(level)" ng-repeat="level in levelAll" style="margin:0 0.1em 0 0.1em">{{level}}</li>
+      <ul>
+        <li class="btn btn-success" ng-class="{'active btn-selected': level === selectedLevel}" ng-click="setLevel(level)" ng-repeat="level in levelAll" style="margin:0 0.1em 0 0.1em">{{level}}</li>
       </ul>
-      <ul class="">
-        <li class="btn btn-success" ng-click="setRare($index)" ng-repeat="rare in rareAll" style="margin:0 0.1em 0 0.1em">{{rare.name}}</li>
+      <ul>
+        <li class="btn btn-success" ng-class="{'active btn-selected': rare.name === selectedRare}" ng-click="setRare($index)" ng-repeat="rare in rareAll" style="margin:0 0.1em 0 0.1em">{{rare.name}}</li>
       </ul>
 
       <ul class="">
-        <li class="btn btn-warning" ng-click="setCategory(category)" ng-repeat="category in categoryAll" style="margin:0 0.1em 0 0.1em">{{category}}</li>
+        <li class="btn btn-warning" ng-class="{'active btn-selected': category === selectedCategory}" ng-click="setCategory(category)" ng-repeat="category in categoryAll" style="margin:0 0.1em 0 0.1em">{{category}}</li>
       </ul>
       <ul class="">
-        <li class="btn btn-default" ng-click="setType(type)" ng-repeat="type in typeAll" style="margin:0 0.1em 0 0.1em">{{type}}</li>
+        <li class="btn btn-default" ng-class="{'active btn-selected': type === selectedType}" ng-click="setType(type)" ng-repeat="type in typeAll" style="margin:0 0.1em 0 0.1em">{{type}}</li>
       </ul>
 
       <!-- second row -->

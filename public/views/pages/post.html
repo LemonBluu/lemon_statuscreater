@@ -1,5 +1,5 @@
-<div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3" style="margin-top:12em">
-  <form class="panel panel-primary" name="signUpForm" ng-submit="post()" role="form">
+<div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3">
+  <form class="panel panel-primary" name="signUpForm" ng-submit="addPost()" role="form">
 
     <!-- 패널 헤더 -->
     <div class="panel-heading" id="addBuilding">
@@ -24,27 +24,46 @@
 
     <!-- 패널 바디 -->
     <div class="panel-body grey padding-sm">
-      <div class="container-fluid">
 
-<div class="col-sm-12">
-        <span class="btn btn-info btn-lg "><i class="fa fa-gavel fa-lg"></i> 공격 {{attack}}</span>
-        <span class="btn btn-warning btn-lg "><i class="fa fa-shield fa-lg"></i> 체력 {{hitpoint}}
-          </span>
-</div>
-        <div class="col-sm-12" style="margin-top:0.5em">
-          <div class="panel panel-default">
-            <table class="table table-striped">
-              <tr>
-                <td>
-                  유닛 설명
-                </td>
-              </tr>
-              <tr>
-                <td class="nopadding"><input class="form-control" ng-model="building.comment" placeholder="설명을 입력해주세요" type="text"></td>
-              </tr>
-            </table>
-          </div>
-        </div>
+      <!-- Row 1  -->
+
+      <span class="btn btn-info btn-lg ">
+        <i class="fa fa-gavel fa-lg"></i>
+        공격
+        {{attack}}
+      </span>
+      <span class="btn btn-warning btn-lg ">
+        <i class="fa fa-shield fa-lg"></i>
+        체력
+        {{hitpoint}}
+      </span>
+
+      <!-- Row 2 -->
+      <div class="panel panel-default" style="margin-top:0.5em">
+        <table class="table table-striped">
+          <tr>
+            <td>
+              유닛 이름
+            </td>
+          </tr>
+          <tr>
+            <td class="nopadding"><input class="form-control" ng-model="post.name" placeholder="이름을 입력해주세요" type="text"></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="panel panel-default">
+        <table class="table table-striped">
+          <tr>
+            <td>
+              유닛 설명
+            </td>
+          </tr>
+          <tr>
+            <td class="nopadding"><input class="form-control" ng-model="post.comment" placeholder="설명을 입력해주세요" type="text"></td>
+          </tr>
+        </table>
       </div>
 
       <!-- 삭제,수정버튼 -->
@@ -63,8 +82,8 @@
             </button>
           </a>
         </span>
-
       </div>
+
     </div>
   </form>
 

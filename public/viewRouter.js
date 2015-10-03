@@ -3,7 +3,7 @@ angular.module('viewRouter', [])
 
 .config(function($routeProvider) {
   $routeProvider
-    .when('/', {
+    .when('/list', {
       templateUrl: 'views/pages/list.html',
       controller: 'listController'
     })
@@ -16,11 +16,11 @@ angular.module('viewRouter', [])
       templateUrl: 'views/pages/register.html',
       controller: 'authController'
     })
-    .when('/post', {
+    .when('/addPost', {
       templateUrl: 'views/pages/post.html',
       controller: 'postController'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/list'
     });
 });

@@ -42,11 +42,13 @@ angular.module('mainCtrl', [])
   // 레벨 필터
   $scope.setLevel = function(res) {
     $rootScope.selectedLevel = res;
+    $scope.randomStatus();
   };
   // 희귀도 필터
   $scope.setRare = function(res) {
     $rootScope.selectedRare = $scope.rareAll[res].name;
     $rootScope.rareBonus = $scope.rareAll[res].bonus;
+    $scope.randomStatus();
   };
   // 직업 분류 필터
   $scope.setCategory = function(res) {
@@ -66,10 +68,15 @@ angular.module('mainCtrl', [])
     $rootScope.enteredValue = '';
     console.log('필터 모두 해제됨');
   };
+  $scope.randomStatus = function() {
+    // 공격력과 체력 랜덤 배분
+    $rootScope.addAll = $scope.baseStatus + $rootScope.selectedLevel + $rootScope.rareBonus;
+    $rootScope.attack = Math.floor(Math.random() * ($scope.addAll - 1)) + 1;
+    $rootScope.hitpoint = $scope.addAll - $scope.attack;
+  };
 
   // 유닛 생성
   $scope.create = function() {
-
     // 항목이 선택되지 않았을 때 랜덤 항목 선택
     if ($rootScope.selectedCategory === '') {
       var i = Math.floor(Math.random() * $scope.categoryAll.length);
@@ -84,11 +91,7 @@ angular.module('mainCtrl', [])
       $rootScope.selectedRare = $scope.rareAll[k].name;
       $rootScope.rareBonus = $scope.rareAll[k].bonus;
     }
-
-    // 공격력과 체력 랜덤 배분
-    $scope.addAll = $scope.baseStatus + $rootScope.selectedLevel + $rootScope.rareBonus;
-    $rootScope.attack = Math.floor(Math.random() * ($scope.addAll - 1)) + 1;
-    $rootScope.hitpoint = $scope.addAll - $scope.attack;
+    $scope.randomStatus();
   };
 })
 
@@ -114,7 +117,7 @@ angular.module('mainCtrl', [])
     } // if($rootScope.authenticated === false)
   }) // .controller
 
-// addBuilding.html 매물 추가 ==============================
+// post.html게시물 추가 ==============================
 .controller('postController', function($scope, $rootScope, $http, $location, postService) {
   // 로그인 체크
   if ($rootScope.authenticated === false) {
@@ -122,42 +125,25 @@ angular.module('mainCtrl', [])
   } else {
     // 새로운 게시물 준비
     $scope.post = new postService();
-    // 드롭다운 클릭시
-    $scope.building.category = "분류";
-
-    $scope.selectCategory = function(selected) {
-      $scope.building.category = selected;
-    };
 
     // 기입버튼 클릭
-    $scope.post = function() {
+    $scope.addPost = function() {
       postService.query().$promise.then(function(data) {
-        //매물 번호 세팅
-        $scope.building.postNum = data.length + 1;
-        $scope.building.postedBy = $rootScope.current_user;
-        postService.save($scope.building);
-        $rootScope.dbCount = $scope.building.postNum - 1;
-        $location.path('/buildings');
+        // 스탯 세팅
+        $scope.post.level = $rootScope.selectedLevel;
+        $scope.post.category = $rootScope.selectedCategory;
+        $scope.post.rare = $rootScope.selectedRare;
+        $scope.post.type = $rootScope.selectedType;
+        $scope.post.attack = $rootScope.attack;
+        $scope.post.hitpoint = $rootScope.hitpoint;
+        //게시물 번호 세팅
+        $scope.post.postNum = data.length + 1;
+        // 작성자 세팅
+        $scope.post.postedBy = $rootScope.current_user;
+        postService.save($scope.post);
+        $location.path('/list');
+        console.log("excute");
       });
-    };
-    // 테스트 기입
-    $scope.testPost = function() {
-      $scope.post.category = '상가',
-        $scope.post.title = '좋은빌',
-        $scope.post.category = '반포동',
-        $scope.post.ability = '101호',
-        $scope.post.selectedLevel = '2',
-        $scope.post.rare = '1',
-        $scope.post.attack = '25',
-        $scope.post.hitpoint = '10',
-        $scope.post.comment = '10'
     };
   }
 }); // buildingAddController
-
-// 분류 클릭시 항목들
-// $scope.items = [
-//   '주택',
-//   '상가',
-//   '사무실'
-// ];
