@@ -2,7 +2,7 @@ angular.module('mainCtrl', [])
 
 // 기본 인증 세팅
 .run(function($http, $rootScope, $location) {
-  $rootScope.authenticated = true;
+  $rootScope.authenticated = false;
   $rootScope.current_user = 'Guest';
 
   // 로그아웃시 인증해제
@@ -29,7 +29,7 @@ angular.module('mainCtrl', [])
       }
     );
 
-  $rootScope.selectedLevel = 1;
+  $rootScope.selectedLevel = undefined;
   $rootScope.selectedCategory = '';
   $rootScope.selectedRare = '';
   $rootScope.selectedType = '';
@@ -59,9 +59,9 @@ angular.module('mainCtrl', [])
     $rootScope.selectedType = res;
   };
   // 필터 전체 해제
-  $scope.clearFilter = function() {
+  $rootScope.clearFilter = function() {
     $rootScope.selectedCategory = '';
-    $rootScope.selectedLevel = 1;
+    $rootScope.selectedLevel = undefined;
     $rootScope.selectedRare = '';
     $rootScope.selectedType = '';
     $rootScope.rareBonus = 0;
@@ -91,6 +91,10 @@ angular.module('mainCtrl', [])
       $rootScope.selectedRare = $scope.rareAll[k].name;
       $rootScope.rareBonus = $scope.rareAll[k].bonus;
     }
+    if ($rootScope.selectedLevel === undefined) {
+      var z = Math.floor(Math.random() * $scope.levelAll.length);
+      $rootScope.selectedLevel = z;
+    }
     $scope.randomStatus();
   };
 })
@@ -110,7 +114,7 @@ angular.module('mainCtrl', [])
           $location.path('/post');
         });
         postService.query().$promise.then(function(data) {
-          //매물 번호 세팅
+          //번호 세팅
           $rootScope.dbCount = data.length;
         });
       };
@@ -141,7 +145,8 @@ angular.module('mainCtrl', [])
         // 작성자 세팅
         $scope.post.postedBy = $rootScope.current_user;
         postService.save($scope.post);
-        $location.path('/list');
+        $location.path('/list'); // 메인리스트로
+        $rootScope.clearFilter(); //필터해제
         console.log("excute");
       });
     };

@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3">
+<div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 margin-main">
   <form class="panel panel-primary" name="signUpForm" ng-submit="addPost()" role="form">
 
     <!-- 패널 헤더 -->
@@ -47,7 +47,7 @@
             </td>
           </tr>
           <tr>
-            <td class="nopadding"><input class="form-control" ng-model="post.name" placeholder="이름을 입력해주세요" type="text"></td>
+            <td class="nopadding"><input class="form-control" ng-model="post.name" placeholder="이름을 입력해주세요" type="text" required ng-minlength="1" ng-maxlength="15"></td>
           </tr>
         </table>
       </div>
@@ -83,7 +83,6 @@
           </a>
         </span>
       </div>
-
     </div>
   </form>
 
