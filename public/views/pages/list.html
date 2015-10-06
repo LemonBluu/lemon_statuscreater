@@ -6,7 +6,7 @@
   <div class="container-fluid nopadding">
     <div ng-repeat="post in posts | filter:{name: enteredValue, level:selectedLevel, rare:selectedRare, category:selectedCategory, type:selectedType} | orderBy:'postedAt':true">
     <div class="alert alert-warning" ng-repeat="empty">해당 조건에 해당되는 유닛이 없습니다. :)</div>
-    {{posts.length}}
+    <!-- {{posts.length}} -->
       <div class="panel panel-primary" style="margin-bottom:0.7em;">
         <!-- 패널 헤더 -->
         <div class="panel-heading container-fluid">
